@@ -1,6 +1,4 @@
 import { Request, Response } from 'express';
-// import connection from '../models/connection';
-// import ProductModel from '../models/productsModel';
 import ProductService from '../services/productsService';
 
 export default class ProductController {
@@ -10,7 +8,7 @@ export default class ProductController {
     this.service = service;
   }
 
-  list = async (req: Request, res: Response): Promise<Response> => {
+  list = async (_req: Request, res: Response): Promise<Response> => {
     const products = await this.service.list();
 
     return res.status(200).json(products);
