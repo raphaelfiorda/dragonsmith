@@ -10,6 +10,12 @@ export default class ProductController {
     this.service = service;
   }
 
+  list = async (req: Request, res: Response): Promise<Response> => {
+    const products = await this.service.list();
+
+    return res.status(200).json(products);
+  };
+
   create = async (req: Request, res: Response): Promise<Response> => {
     const product = req.body;
     const id = await this.service.create(product);

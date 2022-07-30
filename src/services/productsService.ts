@@ -9,6 +9,9 @@ export default class ProductService {
     this.productModel = model;
   }
 
+  list = async (): Promise<Product[] | []> => (
+    this.productModel.list());
+
   create = async (product: Product): Promise<number> => (
     this.productModel.create(product));
 } 
